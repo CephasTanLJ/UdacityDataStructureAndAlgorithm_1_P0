@@ -1,12 +1,13 @@
 # Investigating Texts and Calls
 from UDACITY: Data Structures & Algorithm Nanodegree Program (INTRODUCTION: Project Unscramble Computer Science Problems)
 > ### Student Comment:
-> For Task3, I am unsure if I should print all the phone numbers or just the unique fixed line codes. For now I just print all the phone numbers, but I have included another set of code to just print fixed line codes (ignoring those w/o fixedline codes.)
-> 
-> For the time complexity of each tasks "calculated" with comments "# O(n)" and "#RunTime analysis". The final O(n) estimate is in written under `#RunTime analysis ... => O() = ...`. 
+> For the time complexity of each tasks "calculated" with comments "# O(n)" and "#RunTime analysis". The final O(n) estimate is in written under `#RunTime analysis ... => O() = ...`.
+
+## Analysis.txt file
+Contains brief explanation of the worst-case time complexity per task. 
 
 
-## Project Overview ()
+## Project Overview
 This project section onwards is a direct copy of the project introduction from the project introduction page in the Udacity course. \
 In this project, you will complete five tasks based on a fabricated set of calls and texts exchanged during September 2016. You will use Python to analyze and answer questions about the texts and calls contained in the dataset. Lastly, you will perform run time analysis of your solution and determine its efficiency.
 
