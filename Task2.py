@@ -32,4 +32,4 @@ for entry in calls:                                                             
 
 print(f"{longest_call[0]} spent the longest time, {int(longest_call[3])} seconds, on the phone during September 2016.") # O(1)
 
-#RunTime analysis ~= O(n + 4) => O(n)
+#RunTime analysis ~ O(n + 4) => O(n)

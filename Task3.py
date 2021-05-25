@@ -83,11 +83,6 @@ for entry in calls:                                     # O(n)
 num_recieved_bangalore_list.sort()                                      # O(n log(n))
 num_recieved_bangalore_set = sorted(set(num_recieved_bangalore_list))   # O(n log(n))
 
-## Just in case I misinterpreted part A
-## Uncertain if I need to print all telephone numbers or just unique fixed line codes
-# codes_recieved_bangelore_set = set(map(get_codes, num_recieved_bangalore_list))
-# codes_recieved_bangelore_set.remove(None)
-
 #Part B
 total_calls_from_bangalore = len(num_recieved_bangalore_list)                                   # O(1)
 percentage_bangalore_to_bangalore = bangalore_to_bangalore / total_calls_from_bangalore * 100   # O(n^2) * O(n^2) according to https://stackoverflow.com/questions/44020182/time-complexity-of-operation-python/44020262
@@ -117,4 +112,4 @@ def test():
 
 test()
 
-#RunTime analysis ~= O(n) + 2 * O(n log(n)) + O(1) + 2 * O(n^2) + O(1) + O(n) + O(1) => O(n^2 + n + n.log(n))
+#RunTime analysis ~ O(n) + 2 * O(n log(n)) + O(1) + 2 * O(n^2) + O(1) + O(n) + O(1) => O(n^2 + n + n.log(n))

@@ -52,4 +52,4 @@ def test():
     #=> for loop O() = O(n)
 test()
 
-#RunTime Analysis ~= O(1) + O(n) + 2 * O(n.log(n)) + O(1) + O(n) =>     O(2n + 2n.log(n))
+#RunTime Analysis ~ O(1) + O(n) + 2 * O(n.log(n)) + O(1) + O(n) =>     O(n + n.log(n))

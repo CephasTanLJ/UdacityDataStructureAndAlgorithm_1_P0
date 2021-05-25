@@ -32,4 +32,4 @@ for entry in calls:             # O(n)
 
 print(f"There are {len(unique_tel)} different telephone numbers in the records.")   # O(1)
 
-#RunTime analysis ~= O(2 + 2n) => O(n)
+#RunTime analysis ~ O(2 + 2n) => O(n)
