@@ -1,0 +1,80 @@
+Given
+    n = number of inputs
+    The Big O-notation [O()] is an approximation of the time complexity as n approaches infinity.
+    This means that in any case the approximation favours higher orders terms and
+    ignores lower order terms, constant terms, and constant coefficients.
+    e.g.,
+        O(n^2 + 2n) ~ O(n^2)
+        O(2n^2)     ~ O(n^2)
+
+    The test() function is also ignored.
+
+Assumptions
+    Due to the unknown nature of the algorithm, my estimation will assume:
+        Import statements               ~ constant O(1)
+        Variable assignment statements  ~ constant O(1)
+        Print statements                ~ constant O(1)
+        Datatype ".add/.append"         ~ constant O(1)
+        Indexing/slicing                ~ constant O(1)
+
+Types of Big O and time complexity types:
+    O(1) = constant
+    O(n) = linear
+    O(n^2) = quadratic
+    O(n.log(n)) = log linear
+
+
+# Estimated time complexity for data importing:
+    Each "with-operation/importing" would have a time complexity of at least O(n).
+    This is because it uses a generator(csv.reader) that is iterated over with a list.
+    Therefore each "with-operation" would take at least n-steps.
+
+
+# Run Time analysis/time complexity of my code excluding data importing (above):
+    ## Task0
+        Indexing of data is relatively fast.
+        Since each print statements have constant time complexity, 2* O(1) ~ O(1)
+
+        Overall Time complexity = O(1)
+    __________________________________
+    ## Task1
+        Each "for-loop" of the datas "texts" and "calls" will have O(n).
+        Ignoring lower order complexity terms (e.g., ".add", "print", variable assignment)
+            which are constant, there are 2 for loops:
+            O(2n) ~ O(n)
+
+        Overall Time complexity = O(n)
+    __________________________________
+    ## Task2
+        Ignoring lower order complexity terms (e.g., "import", variable assignment, "print", indexing),
+        I assumed that the usage datetime.strptime has a constant complexity (probably not true) for easier approximation.
+        The main time complexity comes from the for-loop and the nested if statements.
+        Since "for-loop" iterates over every data ("calls"), it will have a minimum complexity of O(n).
+        The each if-operation parameters are also assumed to have constant complexity,
+            and are hence ignored in my approximation.
+
+        Overall Time complexity = O(n)
+    __________________________________
+    ## Task3
+        Similar to above approximation, constant complexity operations are generally ignored
+            due to higher order operations present.
+        The "get_code" helper function has time complexity of O(1) because it only takes a single input ("number")
+            and it does not iterate.
+        The "for-loop" iterates and will have a time complexity of O(n).
+        The "if-else" operations are assumed to have constant time complexity and are ignored.
+        The ".sort()" and "sorted()" each have time complexity of O(n.log(n)). The former is used for the list
+            and the latter is used for the set data.
+
+        Overall Time complexity = O(n^2 + n + n.log(n))
+    __________________________________
+    ## Task4
+        The "is_telemarketer()" helper function has a constant time complexity
+            because it only takes in a single input and slicing is assumed to have constant complexity.
+        The "for-loop" iterates and will have a time complexity of O(n).
+        The "if" operations using the constant complexity helper function. Hence, it is
+            assumed to have constant time complexity and is ignored.
+        Similar to Task3, the ".sort()" and "sorted()" each have time complexity of O(n.log(n)).
+
+
+        Overall Time complexity =  O(n + n.log(n))
+    __________________________________
