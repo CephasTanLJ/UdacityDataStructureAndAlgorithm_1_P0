@@ -70,7 +70,12 @@ def get_codes(number: str) -> str:
 for entry in calls:                                     # O(n)
     '''Append people who recieved calls from a bangalore telephone number into num_received_bangalore list.'''
     if get_codes(entry[0]) == '(080)':                  # +O(1)
-        num_recieved_bangalore_list.append(entry[1])    # +O(1)
+        fixed_code = get_codes(entry[1])
+        if fixed_code != None:
+            num_recieved_bangalore_list.append(fixed_code)    # +O(1)
+        else:
+            num_recieved_bangalore_list.append(entry[1][:4])    # +O(1)
+
         if get_codes(entry[1]) == '(080)':              # +O(1)
             bangalore_to_bangalore += 1                 # +O(1)
 #=> For loop O() = O(n)
