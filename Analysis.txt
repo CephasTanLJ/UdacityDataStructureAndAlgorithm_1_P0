@@ -46,12 +46,16 @@ Types of Big O and time complexity types:
         Overall Time complexity = O(n)
     __________________________________
     ## Task2
-        Ignoring lower order complexity terms (e.g., "import", variable assignment, "print", indexing),
-        I assumed that the usage datetime.strptime has a constant complexity (probably not true) for easier approximation.
-        The main time complexity comes from the for-loop and the nested if statements.
+        Ignoring lower order complexity terms (e.g., O(1)).
+        The main time complexity comes from the for-loop and the nested if statements,
+            as well as the max() function.
         Since "for-loop" iterates over every data ("calls"), it will have a minimum complexity of O(n).
         The each if-operation parameters are also assumed to have constant complexity,
             and are hence ignored in my approximation.
+        The "max-operation" is assumed to iterate over every element in the "call_time" dictionary. Therefore,
+            it should have a time complexity of at least O(n).
+
+            O(2n) ~ O(n)
 
         Overall Time complexity = O(n)
     __________________________________
