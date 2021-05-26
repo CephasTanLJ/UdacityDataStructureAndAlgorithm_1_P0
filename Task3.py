@@ -46,10 +46,11 @@ The percentage should have 2 decimal digits
 """
 # PART A
 
-num_recieved_bangalore_set = set()      # O(1)
-num_recieved_bangalore_list = list()    # O(1)
+num_recieved_bangalore_set = set()  # O(1)
+num_recieved_bangalore_list = list()  # O(1)
 # codes_recieved_bangelore_set = set()
-bangalore_to_bangalore = 0              # O(1)
+bangalore_to_bangalore = 0  # O(1)
+
 
 ##Helper functions:
 def get_codes(number: str) -> str:
@@ -58,34 +59,35 @@ def get_codes(number: str) -> str:
     if no area code,
         :return None
     '''
-    ind = number.find(')') + 1      # O(1)
-    code = number[:ind]             # O(1)
-    if code != "":                  # O(1)
-        return code                 # O(1)
+    ind = number.find(')') + 1  # O(1)
+    code = number[:ind]  # O(1)
+    if code != "":  # O(1)
+        return code  # O(1)
     else:
         return None
-#=> Function O() = O(1)
+
+
+# => Function O() = O(1)
 
 ## main
-for entry in calls:                                     # O(n)
+for entry in calls:  # O(n)
     '''Append people who recieved calls from a bangalore telephone number into num_received_bangalore list.'''
-    if get_codes(entry[0]) == '(080)':                  # +O(1)
+    if get_codes(entry[0]) == '(080)':  # +O(1)
         fixed_code = get_codes(entry[1])
         if fixed_code != None:
-            num_recieved_bangalore_list.append(fixed_code)    # +O(1)
+            num_recieved_bangalore_list.append(fixed_code)  # +O(1)
         else:
-            num_recieved_bangalore_list.append(entry[1][:4])    # +O(1)
+            num_recieved_bangalore_list.append(entry[1][:4])  # +O(1)
 
-        if get_codes(entry[1]) == '(080)':              # +O(1)
-            bangalore_to_bangalore += 1                 # +O(1)
-#=> For loop O() = O(n)
+        if get_codes(entry[1]) == '(080)':  # +O(1)
+            bangalore_to_bangalore += 1  # +O(1)
+# => For loop O() = O(n)
 
-num_recieved_bangalore_list.sort()                                      # O(n log(n))
-num_recieved_bangalore_set = sorted(set(num_recieved_bangalore_list))   # O(n log(n))
+num_recieved_bangalore_set = sorted(set(num_recieved_bangalore_list))  # O(n log(n))
 
-#Part B
-total_calls_from_bangalore = len(num_recieved_bangalore_list)                                   # O(1)
-percentage_bangalore_to_bangalore = bangalore_to_bangalore / total_calls_from_bangalore * 100   # O(n^2) * O(n^2) according to https://stackoverflow.com/questions/44020182/time-complexity-of-operation-python/44020262
+# Part B
+total_calls_from_bangalore = len(num_recieved_bangalore_list)  # O(1)
+percentage_bangalore_to_bangalore = bangalore_to_bangalore / total_calls_from_bangalore * 100  # O(n^2) * O(n^2) according to https://stackoverflow.com/questions/44020182/time-complexity-of-operation-python/44020262
 
 
 def test():
@@ -95,10 +97,10 @@ def test():
     #
     # print('\n\n')
     # print(f'Part A:')
-    print(f'The numbers called by people in Bangalore have codes:' )    # O(1)
-    for number in num_recieved_bangalore_set:                           # O(n)
-        print(number)                                                   # +O(1)
-    #=>For loop O() = O(n)
+    print(f'The numbers called by people in Bangalore have codes:')  # O(1)
+    for number in num_recieved_bangalore_set:  # O(n)
+        print(number)  # +O(1)
+    # =>For loop O() = O(n)
     #
     # print('No problem in A')
     #
@@ -107,9 +109,11 @@ def test():
     #
     # print('\n\n')
     # print(f'Part B:')
-    print(f'{percentage_bangalore_to_bangalore:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.' )  # O(1)
+    print(
+        f'{percentage_bangalore_to_bangalore:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')  # O(1)
     # print('No problem in B')
+
 
 test()
 
-#RunTime analysis ~ O(n) + 2 * O(n log(n)) + O(1) + 2 * O(n^2) + O(1) + O(n) + O(1) => O(n^2 + n + n.log(n))
+# RunTime analysis ~ O(n) + O(n log(n)) + O(1) + 2 * O(n^2) + O(1) + O(n) + O(1) => O(n^2 + n + n.log(n))
