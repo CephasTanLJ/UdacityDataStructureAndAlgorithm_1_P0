@@ -24,11 +24,9 @@ current_longest_time = 0        # O(1)
 longest_call = None             # O(1)
 
 for entry in calls:                                                                 # O(n)
-    dummy_datetime = datetime.strptime(entry[2], '%d-%m-%Y %H:%M:%S')               # *O(1) ignoring the time complexity of imported function. Value assignment = O(1)
-    if dummy_datetime.date().month == 9 and dummy_datetime.date().year == 2016:     # +O(1 + 1) 2 bool checks -> O(1) per bool check
-        if float(entry[3]) > current_longest_time:                                  # +O(1)
-            longest_call = entry                                                    # +O(1)
-#=> For Loop O() = O(n)
+    if float(entry[3]) > current_longest_time:                                  # +O(1)
+        longest_call = entry                                                    # +O(1)
+    #=> For Loop O() = O(n)
 
 print(f"{longest_call[0]} spent the longest time, {int(longest_call[3])} seconds, on the phone during September 2016.") # O(1)
 
