@@ -87,8 +87,7 @@ num_recieved_bangalore_set = sorted(set(num_recieved_bangalore_list))  # O(n log
 
 # Part B
 total_calls_from_bangalore = len(num_recieved_bangalore_list)  # O(1)
-percentage_bangalore_to_bangalore = bangalore_to_bangalore / total_calls_from_bangalore * 100  # O(n^2) * O(n^2) according to https://stackoverflow.com/questions/44020182/time-complexity-of-operation-python/44020262
-
+percentage_bangalore_to_bangalore = bangalore_to_bangalore / total_calls_from_bangalore * 100  # O(1)
 
 def test():
     '''Testing codes.'''
@@ -116,4 +115,4 @@ def test():
 
 test()
 
-# RunTime analysis ~ O(n) + O(n log(n)) + O(1) + 2 * O(n^2) + O(1) + O(n) + O(1) => O(n^2 + n + n.log(n))
+# RunTime analysis ~ O(n) + O(n log(n)) => O(n.log(n))

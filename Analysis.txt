@@ -69,14 +69,14 @@ Types of Big O and time complexity types:
         The ".sort()" and "sorted()" each have time complexity of O(n.log(n)). The former is used for the list
             and the latter is used for the set data.
 
-        Overall Time complexity = O(n^2 + n + n.log(n))
+        Since O(n.log(n)) >> O(n) as n approaches infinity,
+        overall Time complexity = O(nlog(n))
     __________________________________
     ## Task4
         Each "for-loop" iterates and will have a time complexity of O(n).
         Difference of subset is assumed to have O(n) complexity
             because every element of set A is compared to set B (comparative operation).
         Similar to Task3, the "sorted()" function have time complexity of O(n.log(n)).
-
 
         Overall Time complexity =  O(3n + n.log(n))
     __________________________________
