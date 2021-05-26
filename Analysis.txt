@@ -72,13 +72,11 @@ Types of Big O and time complexity types:
         Overall Time complexity = O(n^2 + n + n.log(n))
     __________________________________
     ## Task4
-        The "is_telemarketer()" helper function has a constant time complexity
-            because it only takes in a single input and slicing is assumed to have constant complexity.
-        The "for-loop" iterates and will have a time complexity of O(n).
-        The "if" operations using the constant complexity helper function. Hence, it is
-            assumed to have constant time complexity and is ignored.
-        Similar to Task3, the ".sort()" and "sorted()" each have time complexity of O(n.log(n)).
+        Each "for-loop" iterates and will have a time complexity of O(n).
+        Difference of subset is assumed to have O(n) complexity
+            because every element of set A is compared to set B (comparative operation).
+        Similar to Task3, the "sorted()" function have time complexity of O(n.log(n)).
 
 
-        Overall Time complexity =  O(n + n.log(n))
+        Overall Time complexity =  O(3n + n.log(n))
     __________________________________

@@ -4,9 +4,9 @@ It's ok if you don't understand how to read files.
 """
 import csv
 
-# with open('texts.csv', 'r') as f:
-#     reader = csv.reader(f)
-#     texts = list(reader)
+with open('texts.csv', 'r') as f:
+    reader = csv.reader(f)
+    texts = list(reader)
 
 with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
@@ -24,32 +24,30 @@ Print a message:
 <list of numbers>
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
-# Helper
-def is_telemarketer(number: str) -> bool:       # O(1)
-    return number[:3] == '140'
 
-# Main
-telemarketer_numbers = list()                   # O(1)
+out_call_num = set()                        # O(1)
+non_telemarkerter_num = set()               # O(1)
 
-for entry in calls:                             # O(n)
-    '''Create list of incoming calls phone numbers who are telemarkters (start with 140).'''
-    if is_telemarketer(entry[0]):               # *O(1)
-        telemarketer_numbers.append(entry[0])   # *O(1)
-#=> Function O() = O(n)
+for entry in calls:                         # O(n)
+    out_call_num.add(entry[0])              # +O(1)
+    non_telemarkerter_num.add(entry[1])     # +O(1)
 
-telemarketer_numbers.sort()                     # O(n.log(n))
-telemarketer_numbers = sorted(set(telemarketer_numbers))    # O(n.log(n))
+for entry in texts:                         # O(n)
+    non_telemarkerter_num.add(entry[0])     # +O(1)
+    non_telemarkerter_num.add(entry[1])     # +O(1)
 
-def test():
-    # assert is_telemarketer(calls[1779][0]) == True, "Telemarketer not detected"
-    # assert is_telemarketer(calls[1778][0]) == False, "non-Telemarketer detected"
-    # assert all(map(is_telemarketer, telemarketer_numbers)), "There's non-Telemarketer in telemarketer_list"
-    # print('Test okay.')
+possible_telemarketer = out_call_num - non_telemarkerter_num    # O(n)
+possible_telemarketer = sorted(possible_telemarketer)           # O(nlog(n))
 
-    print(f'These numbers could be telemarketers:')         # O(1)
-    for number in telemarketer_numbers:                     # O(n)
-        print(number)                                       # *O(1)
-    #=> for loop O() = O(n)
-test()
+# Test
+# def test():
+#     assert possible_telemarketer.issubset(out_call_num), "Contains numbers not in out_call_num"
+#     assert possible_telemarketer.isdisjoint(non_telemarkerter_num), "Contains non_telemarketer_num"
+#     print('test done')
+# #
+# test()
 
-#RunTime Analysis ~ O(1) + O(n) + 2 * O(n.log(n)) + O(1) + O(n) =>     O(n + n.log(n))
+print(f'These numbers could be telemarketers:')         # O(1)
+for number in possible_telemarketer:                     # O(n)
+    print(number)                                       # *O(1)
+#RunTime Analysis ~ 3 * O(n) + O(nlog(n)) =>     O(3n + n.log(n))
